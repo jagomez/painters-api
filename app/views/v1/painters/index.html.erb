@@ -1,0 +1,18 @@
+<table>
+  <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Country</th>
+      <th>Years</th>
+    
+  </tr>
+  <% @painter.each do |painter| %>
+    <tr>
+      <td><%= painter.first_name %></td>
+      <td><%= painter.last_name %></td>
+      <td><%= painter.country %></td>
+      <td><%= painter.yearsactive %></td>
+        
+    </tr>
+    <% end %>
+    </table

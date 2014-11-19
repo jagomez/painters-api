@@ -1,0 +1,1 @@
+json.partial! @painter, partial: 'painter', as: :painter
