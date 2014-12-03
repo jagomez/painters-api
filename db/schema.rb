@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141112014308) do
+ActiveRecord::Schema.define(version: 20141119025344) do
 
   create_table "painters", force: true do |t|
     t.string   "first_name"
@@ -27,6 +27,13 @@ ActiveRecord::Schema.define(version: 20141112014308) do
     t.string   "date"
     t.integer  "painter_id"
     t.string   "integer"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "email"
+    t.string   "api_key"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

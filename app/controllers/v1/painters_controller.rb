@@ -1,5 +1,6 @@
 class V1::PaintersController < ApplicationController
 	#respond_to :xml, :json, :html
+	# before_action :restrict_access
 
 	def index
   		@painters = Painter.all
@@ -34,4 +35,9 @@ class V1::PaintersController < ApplicationController
 	def painter_params
 		return params.require(:painter).permit(:first_name, :last_name, :country, :yearsactive)
 	end
+	def restrict_access
+		authenticate_or_request_with_http_token do |api_key, options|
+		User.find_by(email: request.headers["X-User-Email"], api_key: api_key)
+	end
+end
 end
