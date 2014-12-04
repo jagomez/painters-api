@@ -11,7 +11,9 @@
 					<th>Years</th>
 				</tr>
 				<tr>
-				<td><input ng-model="first_nameFilter"></td>
+					<datalist id="first_names">
+						<option ng-repeat="painter in painters" value="{{painter.first_name}}">{{painter.first_name}}</option></datalist>
+				<td><input list="first_names" ng-model="first_nameFilter"></td>
 				<td><input ng-model="last_nameFilter"></td>
 				<td><input ng-model="countryFilter"></td>
 				</tr>
