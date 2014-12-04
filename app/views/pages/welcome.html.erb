@@ -2,9 +2,26 @@
 <div ng-app="app">
 	<div ng-controller="paintersCtrl">
 
-		<div ng-repeat="painter in painters">
-			<h1>{{ painter.first_name}} {{ painter.last_name}}</h1>
-
+		<div>
+			<table>
+				<tr>
+					<th ng-click="changeOrder('first_name')">First Name</th>
+					<th ng-click="changeOrder('last_name')">Last Name</th>
+					<th ng-click="changeOrder('country')">Country</th>
+					<th>Years</th>
+				</tr>
+				<tr>
+				<td><input ng-model="first_nameFilter"></td>
+				<td><input ng-model="last_nameFilter"></td>
+				<td><input ng-model="countryFilter"></td>
+				</tr>
+				<tr ng-repeat ="painter in painters | filter: { first_name: first_nameFilter } |  filter: {last_name: last_nameFilter} | filter: {country: countryFilter} |orderBy:orderAttribute:sortDirection">
+					<td>{{painter.first_name}}</td>
+					<td>{{painter.last_name}}</td>
+					<td>{{painter.country}}</td>
+					<td>{{painter.yearsactive}}</td>
+				</tr>
+			</table>
 		</div>
 	</div>
 </div>
