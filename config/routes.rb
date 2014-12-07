@@ -1,11 +1,8 @@
 Rails.application.routes.draw do
-
-
    
     namespace :v1 do  
-      resources :painters, :only =>[:index]
+      resources :painters
   end
-
   resources :painters 
   root 'pages#welcome'
   # The priority is based upon order of creation: first created -> highest priority.

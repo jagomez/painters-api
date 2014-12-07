@@ -1,9 +1,19 @@
 <h1>Painters</h1>
 <div ng-app="app">
 	<div ng-controller="paintersCtrl">
-
+		<label>First Name:</label>
+		<input ng-model="newPainterFirst_Name">
+		<label>Last Name:</label>
+		<input ng-model="newPainterLast_Name">
+		<label>Country:</label>
+		<input ng-model="newPainterCountry">
+		<label>Years Active:</label>
+		<input ng-model="newPainterYearsactive">
+		<button ng-click="addPainter(newPainterFirst_Name, newPainterLast_Name, newPainterCountry, newPainterYearsactive)">Add Painter</button>
+		<br>
+		<br>
 		<div>
-			<table>
+			<table class="table-striped">
 				<tr>
 					<th ng-click="changeOrder('first_name')">First Name</th>
 					<th ng-click="changeOrder('last_name')">Last Name</th>
@@ -17,7 +27,7 @@
 				<td><input ng-model="last_nameFilter"></td>
 				<td><input ng-model="countryFilter"></td>
 				</tr>
-				<tr ng-repeat ="painter in painters | filter: { first_name: first_nameFilter } |  filter: {last_name: last_nameFilter} | filter: {country: countryFilter} |orderBy:orderAttribute:sortDirection">
+				<tr ng-repeat="painter in painters | filter: { first_name: first_nameFilter } |  filter: {last_name: last_nameFilter} | filter: {country: countryFilter} |orderBy:orderAttribute:sortDirection">
 					<td>{{painter.first_name}}</td>
 					<td>{{painter.last_name}}</td>
 					<td>{{painter.country}}</td>
